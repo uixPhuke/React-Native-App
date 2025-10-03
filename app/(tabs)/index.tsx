@@ -1,98 +1,80 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+import { View, Text, StyleSheet, Image } from "react-native";
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+    <View style={styles.main_container}>
+      <Text style={styles.text1}>Recently Played</Text>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      {/* First Row */}
+      <View style={styles.row}>
+        <Image
+          style={styles.img1}
+          source={require("../../assets/images/central-cee-20250710.jpg")}
+        />
+        <Image
+          style={styles.img1}
+          source={require("../../assets/images/Billie-Eilish-Happier-Than-Ever.jpeg.webp")}
+        />
+        <Image
+          style={styles.img1}
+          source={require("../../assets/images/central-cee-20250710.jpg")}
+        />
+      </View>
+
+      {/* Second Row */}
+      <View style={styles.row2}>
+        <Image
+          style={styles.img2}
+          source={require("../../assets/images/central-cee-20250710.jpg")}
+        />
+        <View style={styles.textContainer}>
+          <Text style={styles.text2}>Spotify Wrapped</Text>
+          <Text style={styles.text3}>Your 2025 in Review</Text>
+        </View>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  main_container: {
+    marginTop: 100,
+    marginHorizontal: 20,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  text1: {
+    fontSize: 20,
+    fontWeight: "600",
+    marginBottom: 15,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  row: {
+    flexDirection: "row",
+    justifyContent: "space-between", // even spacing between images
   },
+  img1: {
+    height: 100,
+    width: 100,
+    borderRadius: 50,
+  },
+  row2: {
+    flexDirection: "row",
+    alignItems: "center",
+    //  justifyContent: "space-between",
+    marginTop: 30,
+  },
+  img2: {
+    height: 80,
+    width: 80,
+    
+  },
+  textContainer: {
+    marginLeft: 15,
+    gap:10
+  },
+  text2: {
+    fontSize: 14,
+    fontWeight: "500",
+  },
+  text3:{
+    fontSize:30
+  }
 });
