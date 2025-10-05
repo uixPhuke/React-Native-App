@@ -1,9 +1,13 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function HomeScreen() {
   const navigation=useRouter();
+
+  const navigateToPlay=()=>{
+    navigation.push("/player");
+  }
 
   return (
     <View style={styles.main_container}>
@@ -82,7 +86,7 @@ export default function HomeScreen() {
         </View>
       </View>
 
-      <View style={styles.c1}     >
+      <TouchableOpacity style={styles.c1} onPress={navigateToPlay} >
         <View style={styles.c2}>
           <Image
             style={styles.img5}
@@ -101,14 +105,14 @@ export default function HomeScreen() {
           />
           <FontAwesome style={{ color: "white", fontSize: 20 }} name="pause" />
         </View>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   main_container: {
-    marginTop: 70,
+    marginTop: 20,
     marginHorizontal: 20,
   },
   containerNew: {
