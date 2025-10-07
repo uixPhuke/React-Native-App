@@ -1,6 +1,9 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Stack } from 'expo-router';
+
+
 
 export default function HomeScreen() {
   const navigation=useRouter();
@@ -112,7 +115,7 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   main_container: {
-    marginTop: 20,
+    marginTop: 70,
     marginHorizontal: 20,
   },
   containerNew: {
