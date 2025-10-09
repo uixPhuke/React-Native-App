@@ -19,7 +19,7 @@ export default function HomeScreen() {
         <View style={styles.icon}>
           <FontAwesome style={{ color: "white", fontSize: 20 }} name="bell" />
           <FontAwesome
-            style={{ color: "white", fontSize: 20 }}
+            style={{ color: "white", fontSize: 40 }}
             name="history"
           />
           <FontAwesome style={{ color: "white", fontSize: 20 }} name="cog" />
